@@ -1,0 +1,31 @@
+{% extends 'todo/base.html' %}
+{% block body %}
+
+<div class="card-body mx-auto" style="max-width:80vw;width:500px;">
+    <ul class='list-group '>
+        {% for tarea in tareas %}
+        <li class='list-group-item'>
+
+            <div class="container row">
+
+                <div class="col-6">
+                    <p class="d-inline">{{tarea}}</p>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-danger">
+                        <a href="{% url 'delete' tarea.id %}" class="text-center text-light "
+                            style="text-decoration: none;">delete</a>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class='btn-primary btn '>
+                        <a href="{% url 'update' tarea.id %}" class='text-center text-light '
+                            style="text-decoration: none;">update</a>
+                    </button>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

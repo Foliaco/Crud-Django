@@ -1,0 +1,24 @@
+{% extends 'todo/base.html' %}
+
+{% block body %}
+
+    <div class="card mx-auto my-4" style="width: 500px; max-width: 80vw;">
+        <div class="card-body">
+            <form id='form' method="post" class='form'>
+                <h2 class='text-center my-2 text-primary fs-3'>Insertar tarea</h2>
+                {% csrf_token %}
+                <div id='form' class="col-auto">
+                    {{form}}
+                </div>
+                <button type="submit" class="btn btn-primary mx-auto d-block my-4">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let form=document.getElementById('form')
+        console.log(form)
+        form.elements[1].classList.add('form-control')
+        
+    </script>
+{% endblock %}
